@@ -1,28 +1,28 @@
 import { Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
 //components import
 
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import NavBar from "./components/NavBar";
-import BookDetails from "./components/Books";
-import Books from "./components/BookDetails";
+import About from './pages/About';
+import Help from './pages/Help'
 
 
 function App() {
   return (
     <>
-<NavBar/>
-    <Routes>
+       <div className="content">
+        <NavBar />
 
-      
-        
+        </div>
+      <Routes>
         <Route index element={<Home />} />
-        <Route path="books" element={< Books />} />
-        <Route path="booksdetails/:id" element={<BookDetails />} />
-      
-    </Routes>
+        <Route path="about" element={<About />} />
+        <Route path="help" element={<Help />} />
+      </Routes>
     </>
   );
 }
