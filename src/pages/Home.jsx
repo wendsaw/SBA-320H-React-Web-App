@@ -1,85 +1,66 @@
-import { useEffect,useState } from "react";
-
-
-
-
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [books, setBooks] = useState(null);
+  const [key, setKey] = useState('');
+  const [word, setWord] = useState('');
+  const [url, setUrl] = useState('');
 
-  const [key ,setKey]=useState('')
-  const [word ,setWord]=useState(null)
-  let [url, setUrl ]=useState('')
-const handleClick=()=>{
-
-  // console.log(key);
-
-setUrl=""
-
-
-  
-}
-
-  const [books, setBooks]=useState(null)
-
-  
-  
-  
-
-  useEffect(()=>{
-
-    console.log(url);
+  const handleClick = () => {
     
-      fetch("www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=AIzaSyDbtpGw-GtR2PpYNLS2krrR0G8Yk2JTmAM")
+    const newUrl = `https://www.googleapis.com/books/v1/volumes?q=flowers+${key}:${word}&key=AIzaSyDbtpGw-GtR2PpYNLS2krrR0G8Yk2JTmAM`;
+    setUrl(newUrl);
+  };
 
-      .then(res=>{
+  useEffect(() => {
+    
 
-          return res.json()
+    fetch(url)
+      .then(res => res.json())  // Corrected fetch response handling
+      .then(data => {
+        setBooks(data);
+        console.log(data); // Log books for debugging
       })
-      .then(data=>{
+      .catch(error => console.error("Error fetching books:", error));
+  }, [url]); // Now fetch triggers when `url` changes
 
-          // console.log(data.items[0].id);
-          setBooks(data.items)
-          console.log(books);
-          
-          
-
-      })
-
-
-  },[])
-
-
-console.log(key);
-console.log(word);
-
-
-    return (
-
-<>
-      <select  onChange={(e)=>{
-        setKey(e.target.value)
-      }}name="" id="" style={{width:"250px", height:"30px", marginLeft:"30px"}}>
-        <option > key word</option>
-        <option value="intitle">title</option>
-        <option value="inauthor">author</option>
-        <option value="inpublisher">publisher</option>
-        <option value="subject">subject</option>
-        <option value="isbn">sbn number</option>
-        <option value="lccn">iccn number</option>
-        <option value="oclc">clc number</option>
-
+  return (
+    <>
+      <select
+        onChange={(e) => setKey(e.target.value)}
+        style={{ width: "250px", height: "30px", marginLeft: "30px" }}
+      >
+        <option value="">Key word</option>
+        <option value="intitle">Title</option>
+        <option value="inauthor">Author</option>
+        <option value="inpublisher">Publisher</option>
+        <option value="subject">Subject</option>
+        <option value="isbn">ISBN Number</option>
+        <option value="lccn">LCCN Number</option>
+        <option value="oclc">OCLC Number</option>
       </select>
-      <input onChange={(e)=>{
-        setWord(e.target.value)
-      }}style={{width:"1000px"}} placeholder="find a book base on key word"></input>
-      <button  onClick={handleClick}syle={{color:"red"}}>search</button>
 
-      </>
-        
+      <input
+        onChange={(e) => setWord(e.target.value)}
+        style={{ width: "1000px" }}
+        placeholder="Find a book based on a keyword"
+        value={word}
+      />
 
+      <button onClick={handleClick} style={{ color: "red" }}>
+        Search
+      </button>
 
-       
-      );
-}
- 
+      {/* Display fetched book data */}
+      {books && books.items && (
+        <ul>
+          {books.items.map((book, index) => (
+            <li key={index}>{book.volumeInfo.title}</li>
+          ))}
+        </ul>
+      )}
+    </>
+  );
+};
+
 export default Home;
