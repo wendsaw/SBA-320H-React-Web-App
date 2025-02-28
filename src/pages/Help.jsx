@@ -1,7 +1,7 @@
 
 
 
-const Help = ({books}) => {
+const Help = () => {
 
 
     return ( 
@@ -10,7 +10,7 @@ const Help = ({books}) => {
        
 
 
-        <div className="book-details" key={books.id}>
+        {/* <div className="book-details" key={books.id}>
             {books.map((book)=>(
                 <p>{book.id}
                {book.textSnippet}</p>
@@ -20,7 +20,7 @@ const Help = ({books}) => {
 
       
 
-        {console.log(books)}
+        {console.log(books)} */}
         
 
      

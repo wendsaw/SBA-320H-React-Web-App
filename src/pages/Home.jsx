@@ -1,4 +1,4 @@
-import { useEffect,useState,useRef } from "react";
+import { useEffect,useState } from "react";
 
 
 
@@ -6,13 +6,30 @@ import { useEffect,useState,useRef } from "react";
 
 const Home = () => {
 
+  const [key ,setKey]=useState('')
+  const [word ,setWord]=useState(null)
+  let [url, setUrl ]=useState('')
+const handleClick=()=>{
+
+  // console.log(key);
+
+setUrl=""
+
+
+  
+}
+
   const [books, setBooks]=useState(null)
+
+  
+  
+  
 
   useEffect(()=>{
 
-      console.log(books);
-      
-      fetch("https://www.googleapis.com/books/v1/volumes?q=inauthor:keyes&key=AIzaSyDbtpGw-GtR2PpYNLS2krrR0G8Yk2JTmAM")
+    console.log(url);
+    
+      fetch("www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=AIzaSyDbtpGw-GtR2PpYNLS2krrR0G8Yk2JTmAM")
 
       .then(res=>{
 
@@ -22,31 +39,40 @@ const Home = () => {
 
           // console.log(data.items[0].id);
           setBooks(data.items)
+          console.log(books);
+          
           
 
       })
 
 
-  },[books])
+  },[])
 
+
+console.log(key);
+console.log(word);
 
 
     return (
 
 <>
-      <select name="" id="" style={{width:"250px", height:"30px", marginLeft:"30px"}}>
-        <option selected>select key word</option>
-        <option value="1">title</option>
-        <option value="2">author</option>
-        <option value="3">publisher</option>
-        <option value="3">subject</option>
-        <option value="3">sbn number</option>
-        <option value="3">iccn number</option>
-        <option value="3">clc number</option>
+      <select  onChange={(e)=>{
+        setKey(e.target.value)
+      }}name="" id="" style={{width:"250px", height:"30px", marginLeft:"30px"}}>
+        <option > key word</option>
+        <option value="intitle">title</option>
+        <option value="inauthor">author</option>
+        <option value="inpublisher">publisher</option>
+        <option value="subject">subject</option>
+        <option value="isbn">sbn number</option>
+        <option value="lccn">iccn number</option>
+        <option value="oclc">clc number</option>
 
       </select>
-      <input style={{width:"1000px"}} placeholder="find a book base on key word"></input>
-      <button syle={{color:"red"}}>search</button>
+      <input onChange={(e)=>{
+        setWord(e.target.value)
+      }}style={{width:"1000px"}} placeholder="find a book base on key word"></input>
+      <button  onClick={handleClick}syle={{color:"red"}}>search</button>
 
       </>
         
