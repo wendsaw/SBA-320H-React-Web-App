@@ -45,3 +45,41 @@ code {
 .navbar a:hover {
   color: #f1356d;
 }
+.books  {
+  display: block;
+  background: rgba(0,0,0,0.2);
+  padding: 20px;
+  padding-right: 135px;
+  border-radius: 4px;
+  margin: 20px;
+  text-decoration: none;
+  
+}
+
+.books  {
+  margin: 30;
+
+  margin-right: 180px;
+}
+
+/* careers details */
+.books-details {
+  background: rgba(0,0,0,0.2);
+  padding: 20px;
+  border-radius: 4px;
+  
+}
+
+.book-image{
+  
+  
+  
+  
+margin-left: 1000px;
+;
+
+  /* margin-left: 1000px; */
+  
+  
+
+}
