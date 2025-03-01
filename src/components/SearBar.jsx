@@ -8,8 +8,12 @@ const SearBar = () => {
     const [key, setKey] = useState('');
     const [word, setWord] = useState('');
     const [url, setUrl] = useState('');
+    const [isPending, setIsPending] = useState(true)
+    const [error, SetError]=useState(null)
 
     const handleClick = () => {
+
+        isPending && <div> Loading.....</div>
         const newUrl = `https://www.googleapis.com/books/v1/volumes?q=flowers+${key}:${word}&key=AIzaSyDbtpGw-GtR2PpYNLS2krrR0G8Yk2JTmAM`;
         setUrl(newUrl);
     };
@@ -19,15 +23,34 @@ const SearBar = () => {
 
     useEffect(() => {
 
-
         fetch(url)
-            .then(res => res.json())
+            .then(res =>{
+                if(!res.ok){
+
+                    throw Error ('could not make connection')
+                }
+
+                return  res.json()
+
+            } )
+            
             .then(data => {
                 setBooks(data);
+                setIsPending(false)
                 console.log(data);
+                SetError(null)
+            })
+            .catch(err=>{
+
+                console.log(err.message);
+                SetError(err.message)
+                console.log(error);
+                
+                setIsPending(false)
+                
             })
 
-    }, [url]);
+    }, [url,error]);
 
 
     return (
@@ -53,11 +76,12 @@ const SearBar = () => {
                 value={word}
             />
 
-            <button onClick={handleClick} style={{ color: "red" }}>
+            <button onClick={handleClick} style={{ color: "red" }} >
                 Search
             </button>
 
-           {books && <Bookslist books={books} />}
+            {/* {error&&<div>{error}</div>} */}
+            {books && <Bookslist books={books} />}
         </>
     );
 
