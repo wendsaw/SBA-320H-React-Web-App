@@ -7,8 +7,11 @@ const Home = () => {
 
   return (
     <>
-      
+    <div className="home">
       <SearBar/>
+
+      
+      </div>
       
     </>
   );

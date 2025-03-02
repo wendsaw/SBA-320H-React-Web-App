@@ -5,9 +5,8 @@ import useFetch from "../useFetch";
 
 
 const SearBar = () => {
-
     const [key, setKey] = useState('');
-    const [word, setWord] = useState('');
+    const [word, setWord] = useState([]);
     const [url, setUrl] = useState('');
     const { data: books, isPending, error } = useFetch(url);
 
@@ -19,9 +18,10 @@ const SearBar = () => {
 
     return (
         <>
+        <div className="sear-bar">
             <select
                 onChange={(e) => setKey(e.target.value)}
-                style={{ width: "250px", height: "30px", marginLeft: "30px" }}
+                style={{ width: "250", height: "50px" }}
             >
                 <option value="">Key word</option>
                 <option value="intitle">Title</option>
@@ -40,11 +40,13 @@ const SearBar = () => {
                 value={word}
             />
 
-            <button onClick={handleClick} style={{ color: "red" }} >
-                Search
+            <button onClick={handleClick} 
+            style={{ color: "red" }} >
+             <span>Search</span>
             </button>
+            </div>
             {isPending && <div>Loading...</div>}
-            {error && <div>{error}</div>}
+            {error && !error.includes("<!DOCTYPE") && <div style={{ color: "red" }}>{error}</div>}
             {books && <Bookslist books={books} />}
         </>
     );

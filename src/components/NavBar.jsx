@@ -1,5 +1,5 @@
 
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import React from "react";
 
@@ -7,14 +7,15 @@ import React from "react";
 const NavBar = () => {
 
     return (
-        <nav className="navbar">
 
-          <Link to='/' className="links">Home</Link>
-          <Link to='about' className="links">About</Link>
+      <header>
+        <nav className="navbar">
+          <NavLink to='/' className="links">Home</NavLink>
+          <NavLink to='about' className="links">About</NavLink>
           <Link to='help' className="links">Help</Link>
-        
-      
         </nav>
+      </header>
+        
       );
 }
  
