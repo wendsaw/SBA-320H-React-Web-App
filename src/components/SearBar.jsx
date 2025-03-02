@@ -33,7 +33,7 @@ const SearBar = () => {
                 <option value="oclc">OCLC Number</option>
             </select>
 
-            <input
+            <input className="sear-input"
                 onChange={(e) => setWord(e.target.value)}
                 style={{ width: "1000px" }}
                 placeholder="Find a book based on a keyword"
@@ -45,7 +45,7 @@ const SearBar = () => {
              <span>Search</span>
             </button>
             </div>
-            {isPending && <div>Loading...</div>}
+            {/* {isPending && <div>Loading...</div>} */}
             {error && !error.includes("<!DOCTYPE") && <div style={{ color: "red" }}>{error}</div>}
             {books && <Bookslist books={books} />}
         </>
