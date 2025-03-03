@@ -14,7 +14,7 @@ const SearBar = () => {
 
 
     const handleClick = () => {
-        const newUrl = `${backendUrl}?q=${word}+${key}&key=${apiKey}`;
+        const newUrl = `https://www.googleapis.com/books/v1/volumes?q=${word}+${key}&key=AIzaSyDbtpGw-GtR2PpYNLS2krrR0G8Yk2JTmAM`;
 
         setUrl(newUrl);
     };
