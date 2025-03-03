@@ -1,17 +1,21 @@
 import { useState } from "react";
-
 import Bookslist from "./BooksList";
 import useFetch from "../useFetch";
 
 
 const SearBar = () => {
     const [key, setKey] = useState('');
-    const [word, setWord] = useState([]);
+    const [word, setWord] = useState('');
     const [url, setUrl] = useState('');
     const { data: books, error } = useFetch(url);
 
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+
     const handleClick = () => {
-        const newUrl = `https://www.googleapis.com/books/v1/volumes?q=${word}+${key}&key=AIzaSyDbtpGw-GtR2PpYNLS2krrR0G8Yk2JTmAM`;
+        const newUrl = `${backendUrl}?q=${word}+${key}&key=${apiKey}`;
+
         setUrl(newUrl);
     };
 
@@ -21,7 +25,7 @@ const SearBar = () => {
         <div className="sear-bar">
             <select
                 onChange={(e) => setKey(e.target.value)}
-                style={{ width: "250", height: "50px" }}
+                style={{ width: "250px", height: "50px" }}
             >
                 <option value="">Key word</option>
                 <option value="intitle">Title</option>
