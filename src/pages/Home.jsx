@@ -3,7 +3,7 @@
 import Logo from "../components/Logo";
 import SearBar from "../components/SearBar";
 import HomeLayout from "../layouts/HomeLayout";
-<img src="../public/images/logo" alt="" />
+
 
 const Home = () => {
   
