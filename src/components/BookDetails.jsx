@@ -6,8 +6,11 @@ import HomeLayout from "../layouts/HomeLayout";
 const BookDetails = () => {
 
     const {id}=useParams()
+    
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
-    const { data: book, error, isPending } = useFetch(`https://www.googleapis.com/books/v1/volumes/${id}`);
+    const { data: book, error, isPending } = useFetch(`${backendUrl}/${id}`);
+
 
 
 
@@ -17,13 +20,13 @@ const BookDetails = () => {
         <div className="book-details">
             
 
-            {isPending&& <div>Loadind.....</div>}
+            {isPending&& <div>Loading.....</div>}
             {error && !error.includes("<!DOCTYPE") && <div style={{ color: "red" }}>{error}</div>}
             {book&& (
                 <article>
                     
-                    <p>Title:<h2>{book.volumeInfo.title}</h2></p>
-                    <p>Witten by:{book.volumeInfo.authors}</p>
+                    <p>Title:</p><h2>{book.volumeInfo.title}</h2>
+                    <p>Witten by:{book.volumeInfo.authors.join(", ") }</p>
                     <p>Publisher:{book.volumeInfo.publisher}</p>
                     <p>Published date:{book.volumeInfo.publishedDate}</p>
                     <p>description:{book.volumeInfo.description}</p>
