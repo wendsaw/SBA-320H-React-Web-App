@@ -7,9 +7,9 @@ const BookDetails = () => {
 
     const {id}=useParams()
     
-    const backendUrl = process.env.REACT_APP_BACKEND_URL;
+    
 
-    const { data: book, error, isPending } = useFetch(`${backendUrl}/${id}`);
+    const { data: book, error, isPending } = useFetch(`https://www.googleapis.com/books/v1/volumes/${id}`);
 
 
 
