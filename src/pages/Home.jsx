@@ -13,7 +13,7 @@ const Home = () => {
     <div className="home">
       <Logo/>
 
-   <span>Denver Public Library</span>
+   <span>Wend Book Store</span>
    <HomeLayout/>
       <SearBar/>
       </div>
