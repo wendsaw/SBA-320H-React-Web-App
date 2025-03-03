@@ -9,8 +9,6 @@ const SearBar = () => {
     const [url, setUrl] = useState('');
     const { data: books, error } = useFetch(url);
 
-    // const apiKey = process.env.REACT_APP_API_KEY;
-    // const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
 
     const handleClick = () => {
