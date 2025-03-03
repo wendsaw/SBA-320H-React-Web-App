@@ -6,7 +6,7 @@ const useFetch = (url) => {
     const [isPending, setIsPending] = useState(true)
     const [error, SetError] = useState(null)
     useEffect(() => {
-
+if(!url) return
         fetch(url)
             .then(res => {
                 if (!res.ok) {
