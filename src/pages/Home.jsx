@@ -15,7 +15,7 @@ const Home = () => {
 
    <span>Wend Book Store</span>
    <HomeLayout/>
-      <SearBar/>
+      {<SearBar/>}
       </div>
       
     </>

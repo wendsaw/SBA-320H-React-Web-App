@@ -7,14 +7,18 @@ const SearBar = () => {
     const [key, setKey] = useState('');
     const [word, setWord] = useState('');
     const [url, setUrl] = useState('');
+    const [search,setSearch]=useState(false)
     const { data: books, error } = useFetch(url);
 
 
 
     const handleClick = () => {
-        const newUrl = `https://www.googleapis.com/books/v1/volumes?q=${word}+${key}&key=AIzaSyDbtpGw-GtR2PpYNLS2krrR0G8Yk2JTmAM`;
 
+        const newUrl = `https://www.googleapis.com/books/v1/volumes?q=${word}+${key}&key=AIzaSyDbtpGw-GtR2PpYNLS2krrR0G8Yk2JTmAM`;
+        
         setUrl(newUrl);
+        setSearch(true)
+
     };
 
 
@@ -47,8 +51,8 @@ const SearBar = () => {
              <span>Search</span>
             </button>
             </div>
-            {error && !error.includes("<!DOCTYPE") && <div style={{ color: "red" }}>{error}</div>}
-            {books && <Bookslist books={books} />}
+            {!search&&error && !error.includes("<!DOCTYPE") && <div style={{ color: "red" }}>{error}</div>}
+            {!search && books && <Bookslist books={books} />}
         </>
     );
 
