@@ -1,11 +1,7 @@
 
 
-
-
-
 const About= () => {
 
-   
 
     return ( 
         <>
