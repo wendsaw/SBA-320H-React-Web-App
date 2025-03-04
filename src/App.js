@@ -4,7 +4,6 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider } from 'r
 import { Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 //components import
 
 
@@ -20,6 +19,13 @@ import Contact from './pages/help/Contact';
 import Catalog from './pages/Catalog';
 import Error from './pages/Error';
 import BookDetails from './components/BookDetails';
+import Downloads from './pages/Downloads';
+import Events from './pages/Events';
+import Kids from './pages/Kids';
+import Recommendatio from './pages/Recommendation';
+import Research from './pages/Research';
+import Services from './pages/Services';
+import Teens from './pages/Teens';
 
 const router = createBrowserRouter(
 
@@ -28,13 +34,22 @@ const router = createBrowserRouter(
     <Route path='/' element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path="about" element={<About />} />
-      <Route path='help' element={<HelpLayout/>}>
-        <Route path='faq' element={<Faq/>}/>
-        <Route path='contact' element={<Contact/>}/>
+      <Route path='help' element={<HelpLayout />}>
+        <Route path='faq' element={<Faq />} />
+        <Route path='contact' element={<Contact />} />
       </Route>
       <Route path="catalog" element={<Catalog />} />
-      <Route path='*' element={<Error/>}></Route>
-      <Route path='book/:id' element={<BookDetails/>}/>
+      <Route path='*' element={<Error />}></Route>
+      <Route path='book/:id' element={<BookDetails />} />
+
+      <Route path="download" element={<Downloads />} />
+      <Route path="events" element={<Events />} />
+      <Route path="kids" element={<Kids />} />
+      <Route path="recommendation" element={<Recommendatio />} />
+      <Route path="research" element={<Research />} />
+      <Route path="services" element={<Services />} />
+      <Route path="teens" element={<Teens />} />
+      
 
     </Route>
 
@@ -44,10 +59,11 @@ const router = createBrowserRouter(
 function App() {
   return (
     <>
-      <div className="content">
 
-      </div>
+
       <RouterProvider router={router} />
+
+
     </>
 
 

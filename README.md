@@ -12,7 +12,7 @@ Technical Description
 By utilizing cutting-edge technology to build this React application, I was able to achieve the desired results.
 
 Application Structure
-The app consists of 11 pages, each with distinct routes.
+The app consists of 14 pages, each with distinct routes.
 It features three different layouts, which structure and connect the various pages.
 The primary layout is RootLayout.
 Components
