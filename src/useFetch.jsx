@@ -5,6 +5,8 @@ const useFetch = (url) => {
     const [data, setData] = useState(null);
     const [isPending, setIsPending] = useState(true)
     const [error, SetError] = useState(null)
+
+    
     useEffect(() => {
 if(!url) return
         fetch(url)
@@ -33,9 +35,6 @@ if(!url) return
                 setIsPending(false)
 
             })
-
-            
-            
 
     }, [url, error]);
 

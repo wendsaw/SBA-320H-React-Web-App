@@ -1,71 +1,34 @@
-# Getting Started with Create React App
+Cutting-Edge Technology for an Online Bookstore
+This website leverages the latest technology to create the best possible user experience for an online bookstore.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Overview
+The homepage is the first page that renders upon visiting the website. From there, users can navigate to their desired pages seamlessly.
 
-## Available Scripts
+The website allows users to:
 
-In the project directory, you can run:
+Download eBooks (if available).
+Purchase hardcopy books.
+Technical Description
+By utilizing cutting-edge technology to build this React application, I was able to achieve the desired results.
 
-### `npm start`
+Application Structure
+The app consists of 11 pages, each with distinct routes.
+It features three different layouts, which structure and connect the various pages.
+The primary layout is RootLayout.
+Components
+This app is built with four key components:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Search Component – Allows users to search for books.
+BookList Component – Displays books that match the search criteria.
+BookDetails Component – Provides detailed information about a selected book.
+Logo Component – Renders the bookstore's logo.
+Custom Fetch Hook
+Due to frequent data-fetching requirements, I implemented a custom fetch hook (useFetch). This hook:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Utilizes the useEffect hook to trigger data fetching whenever the URL, state, or error changes.
+Includes a fetch function that dynamically updates based on the provided URL.
+Styling
+Inline CSS is used for some elements.
+The majority of styling is handled within index.css.
+This approach ensures a well-structured, efficient, and user-friendly experience for browsing and purchasing books online.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# SBA-320H-React-Web-App
