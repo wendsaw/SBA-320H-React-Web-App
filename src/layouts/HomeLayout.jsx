@@ -1,8 +1,6 @@
 
 import { NavLink, Outlet} from "react-router-dom";
 
-
-
 const HomeLayout = () => {
 
 
@@ -10,7 +8,6 @@ const HomeLayout = () => {
 
         <>
         <div className="home-layout">
-       
         <nav className="Nest-nab">
           <NavLink to='catalog' className="links">Catalog</NavLink>
           <NavLink to='download' className="links">Downloads</NavLink>

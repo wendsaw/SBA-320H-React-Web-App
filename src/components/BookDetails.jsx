@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../useFetch";
-import HomeLayout from "../layouts/HomeLayout";
 
 
 const BookDetails = () => {
@@ -16,6 +15,7 @@ const BookDetails = () => {
 
     return ( 
         <>
+        
 
         <div className="book-details">
             
@@ -35,12 +35,13 @@ const BookDetails = () => {
 
                 </article>
 
+               
 
             )}
 
 
         </div>
-        <HomeLayout/>
+        
         </>
      );
 }

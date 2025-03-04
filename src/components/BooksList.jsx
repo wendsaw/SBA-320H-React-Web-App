@@ -1,4 +1,9 @@
+
+
 import { NavLink } from "react-router-dom";
+
+import { createContext  } from "react";
+const BooksContext=createContext()
 
 
 const Bookslist = ({books}) => {
@@ -7,7 +12,7 @@ const Bookslist = ({books}) => {
 
     return (
         <>
-      
+      <BooksContext.Provider value={books}>
       
         <ul>
           {books.items.map((book, index) => (
@@ -22,9 +27,9 @@ const Bookslist = ({books}) => {
             </div>
           ))}
         </ul>
-      
+        </BooksContext.Provider>
         </>
       );
 }
  
-export default Bookslist;
+export default  Bookslist
