@@ -1,4 +1,6 @@
+import SearBar from "../components/SearBar";
 
+import Logo from "../components/Logo";
 
 
 const Teens = () => {
@@ -6,7 +8,15 @@ const Teens = () => {
 
     return (  
 
-        <h1>Page under construction</h1>
+        <>
+        <div className="home">
+      <Logo/>
+
+   <span>Wend Book Store</span>
+    
+      {<SearBar/>}
+      </div>
+        </>
     );
 }
  

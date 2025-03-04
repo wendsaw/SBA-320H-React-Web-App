@@ -14,7 +14,7 @@ const Home = () => {
       <Logo/>
 
    <span>Wend Book Store</span>
-   <HomeLayout/>
+     <HomeLayout/>
       {<SearBar/>}
       </div>
       

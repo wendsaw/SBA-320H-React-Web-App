@@ -10,8 +10,6 @@ const SearBar = () => {
     const [url, setUrl] = useState('');
     
     const { data: books, error } = useFetch(url);
-    
-
 
 
     const handleClick = () => {
